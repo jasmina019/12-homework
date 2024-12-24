@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %} Create Form {% endblock %}
+
+{% block content %}
+    <div class="container mt-4 flex-grow-1">
+        <h1>Yangi Mahsulot Qo'shish</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="product_title" class="form-label">Mahsulot nomi</label>
+                <input type="text" class="form-control" id="product_title" name="product_title" required>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Mahsulot tavsifi</label>
+                <textarea class="form-control" id="description" rows="3" name="description" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">Narxi</label>
+                <input type="number" class="form-control" id="price" name="price" required>
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">Mahsulot rasmi</label>
+                <input type="file" class="form-control" id="image" accept="image/*" name="image" required>
+            </div>
+            <div class="mb-3">
+                <label for="category" class="form-label">Kategoriya</label>
+                <select class="form-select" id="category" name="category" required>
+                    <option value="">Kategoriyani tanlang</option>
+                    <option value="elektronika">Elektronika</option>
+                    <option value="kiyim-kechak">Kiyim-kechak</option>
+                    <option value="oziq-ovqat">Oziq-ovqat</option>
+                    <option value="uy-ro'zg'or-buyumlari">Uy-ro'zg'or buyumlari</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Mahsulotni qo'shish</button>
+        </form>
+    </div>
+
+ {% endblock %}
